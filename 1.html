@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+<title>BAEKHYUN</title>
+<meta charset="utf-8">
+</head>
+<body style="background-color:AliceBlue;">
+  <style>
+  a{text-decoration:none;} </style>
+
+<p style="margin-top:80px;"></p>
+  <h1 style="text-align:center;font-size:300%;color:white;font-family:Mapo금빛나루;font-style:italic;text-decoration: none;"><a href="index.html">BAEKHYUN</h1>
+<hr></hr>
+<p style="text-align:center;font-size:150%;color:blue;font-family:Mapo금빛나루;"><b><a href="1.html">♥(*｀･へ･´*)♥</a></b></p>
+<p style="text-align:center;font-size:150%;color:white;font-family:Mapo금빛나루;"><b><a href="2.html">City Lights</a></b></p>
+<p style="text-align:center;font-size:150%;color:white;font-family:Mapo금빛나루;"><b><a href="3.html">Delight</a></b></p>
+
+<p style="margin-top:70px;"></p>
+<p style="font-family:Mapo금빛나루;"><h2 style="color:black;text-align:center">Black Hyun</h2></p>
+<p style="text-align:center;"><img src="EE8F3E60-4807-4FD4-AD9F-DDFC4444874C.gif"width="40%"></p>
+<p style="text-align:center;"><img src="136EC345-6B64-4C0C-BC32-A01135D8217F.gif"width="40%"></p>
+<p style="text-align:center;"><img src="99E687395BE595EA2BBA59.gif"width="40%"></p>
+<p style="margin-top:50px;"></p>
+<p style="font-family:Mapo금빛나루;"><h2 style="color:brown;text-align:center">Brown Hyun</h2></p>
+<p style="text-align:center;"><img src="19CD5FEC-AF48-4953-AF00-7BBCE8537992.gif"width="40%"></p>
+<p style="text-align:center;"><img src="DC8125DF-6DEA-421C-8314-10B5FBD63759.gif"width="40%"></p>
+<p style="text-align:center;"><img src="2A5A67D7-8CC5-4806-B4C4-210E8B627B5E.gif"width="40%"></p>
+<p style="margin-top:50px;"></p>
+<p style="font-family:Mapo금빛나루;"><h2 style="color:white;text-align:center">White Hyun</h2></p>
+<p style="text-align:center;"><img src="download-2.gif"width="40%"></p>
+<p style="text-align:center;"><img src="0C295A74-DD84-4534-AA7C-6D993CB0E8B4.gif"width="40%"></p>
+<p style="text-align:center;"><img src="199D71D4-015A-47FC-AF78-D6D0D6628BA3.gif"width="40%"></p>
+<p style="margin-top:50px;"></p>
+<p><h3 style="text-align:center;color:red">♡</h3><h3 style="text-align:center;"> 'ㅅ' </h3> <h3 style="text-align:center;color:red">♡</h3></p>
+
+
+<p style="margin-top:70px;"></p>
+
+<script type="text/javascript">
+// <![CDATA[
+var colours=new Array('#FFFFFF', '#FBEFF2', '#CEECF5', '#2E9AFE', '#FA5882', '#FF0040');
+var minisize=15; // smallest size of hearts in pixels
+var maxisize=20; // biggest size of hearts in pixels
+var hearts=50; // maximum number of hearts on screen
+var over_or_under="over";
+
+/*****************************
+*JavaScript Love Heart Cursor*
+*  (c)2013+ mf2fm web-design *
+*   http://www.mf2fm.com/rv  *
+*  DON'T EDIT BELOW THIS BOX *
+*****************************/
+var x=ox=400;
+var y=oy=300;
+var swide=800;
+var shigh=600;
+var sleft=sdown=0;
+var herz=new Array();
+var herzx=new Array();
+var herzy=new Array();
+var herzs=new Array();
+var kiss=false;
+
+if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
+  var oldonload=window.onload;
+  if (typeof(oldonload)!='function') window.onload=funky;
+  else window.onload=function() {
+    if (oldonload) oldonload();
+    funky();
+  }
+}
+
+addRVLoadEvent(mwah);
+
+function mwah() { if (document.getElementById) {
+  var i, heart;
+  for (i=0; i<hearts; i++) {
+    heart=createDiv("auto", "auto");
+    heart.style.visibility="hidden";
+    heart.style.zIndex=(over_or_under=="over")?"1001":"0";
+    heart.style.color=colours[i%colours.length];
+    heart.style.pointerEvents="none";
+    if (navigator.appName=="Microsoft Internet Explorer") heart.style.filter="alpha(opacity=75)";
+    else heart.style.opacity=0.75;
+    heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
+    document.body.appendChild(heart);
+    herz[i]=heart;
+    herzy[i]=false;
+  }
+  set_scroll();
+  set_width();
+  herzle();
+}}
+
+function herzle() {
+  var c;
+  if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+    ox=x;
+    oy=y;
+    for (c=0; c<hearts; c++) if (herzy[c]===false) {
+      herz[c].firstChild.nodeValue=String.fromCharCode(9829);
+      herz[c].style.left=(herzx[c]=x-minisize/2)+"px";
+      herz[c].style.top=(herzy[c]=y-minisize)+"px";
+      herz[c].style.fontSize=minisize+"px";
+      herz[c].style.fontWeight='normal';
+      herz[c].style.visibility='visible';
+      herzs[c]=minisize;
+      break;
+    }
+  }
+  for (c=0; c<hearts; c++) if (herzy[c]!==false) blow_me_a_kiss(c);
+  setTimeout("herzle()", 40);
+}
+
+document.onmousedown=pucker;
+document.onmouseup=function(){clearTimeout(kiss);};
+
+function pucker() {
+  ox=-1;
+  oy=-1;
+  kiss=setTimeout('pucker()', 100);
+}
+
+function blow_me_a_kiss(i) {
+  herzy[i]-=herzs[i]/minisize+i%2;
+  herzx[i]+=(i%5-2)/5;
+  if (herzy[i]<sdown-herzs[i] || herzx[i]<sleft-herzs[i] || herzx[i]>sleft+swide-herzs[i]) {
+    herz[i].style.visibility="hidden";
+    herzy[i]=false;
+  }
+  else if (herzs[i]>minisize+2 && Math.random()<.5/hearts) break_my_heart(i);
+  else {
+    if (Math.random()<maxisize/herzy[i] && herzs[i]<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
+    herz[i].style.top=herzy[i]+"px";
+    herz[i].style.left=herzx[i]+"px";
+  }
+}
+
+function break_my_heart(i) {
+  var t;
+  herz[i].firstChild.nodeValue=String.fromCharCode(9676);
+  herz[i].style.fontWeight='bold';
+  herzy[i]=false;
+  for (t=herzs[i]; t<=maxisize; t++) setTimeout('herz['+i+'].style.fontSize="'+t+'px"', 60*(t-herzs[i]));
+  setTimeout('herz['+i+'].style.visibility="hidden";', 60*(t-herzs[i]));
+}
+
+document.onmousemove=mouse;
+function mouse(e) {
+  if (e) {
+    y=e.pageY;
+    x=e.pageX;
+  }
+  else {
+    set_scroll();
+    y=event.y+sdown;
+    x=event.x+sleft;
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  var sw_min=999999;
+  var sh_min=999999;
+  if (document.documentElement && document.documentElement.clientWidth) {
+    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+  }
+  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+  }
+  if (document.body.clientWidth) {
+    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+  }
+  if (sw_min==999999 || sh_min==999999) {
+    sw_min=800;
+    sh_min=600;
+  }
+  swide=sw_min;
+  shigh=sh_min;
+}
+
+window.onscroll=set_scroll;
+function set_scroll() {
+  if (typeof(self.pageYOffset)=='number') {
+    sdown=self.pageYOffset;
+    sleft=self.pageXOffset;
+  }
+  else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+    sdown=document.body.scrollTop;
+    sleft=document.body.scrollLeft;
+  }
+  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+    sleft=document.documentElement.scrollLeft;
+    sdown=document.documentElement.scrollTop;
+  }
+  else {
+    sdown=0;
+    sleft=0;
+  }
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height;
+  div.style.width=width;
+  div.style.overflow="hidden";
+  div.style.backgroundColor="transparent";
+  return (div);
+}
+// ]]>
+</script>
+
+</body>
+</html>
